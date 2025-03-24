@@ -30,11 +30,11 @@ class Sistema:
     def agregar_paciente(self, paciente):
         """Verifica si ya existe un paciente con la misma cédula antes de agregarlo."""
         if paciente.verCedula() in self.lista_pacientes:
-            print("⚠️ Error: Ya existe un paciente con esta cédula.")
+            print("Error: Ya existe un paciente con esta cédula.")
             return False
         else:
             self.lista_pacientes[paciente.verCedula()] = paciente
-            print("✅ Paciente registrado exitosamente.")
+            print("Paciente registrado exitosamente.")
             return True
 
     def obtener_paciente(self, cedula):
@@ -64,7 +64,7 @@ def main():
             
             # Verificar si la cédula ya está registrada
             if sistema.obtener_paciente(cedula):
-                print("⚠️ Error: Ya existe un paciente con esta cédula.")
+                print("Error: Ya existe un paciente con esta cédula.")
                 continue
 
             genero = input("Ingrese el género del paciente: ")
@@ -78,23 +78,23 @@ def main():
             paciente = sistema.obtener_paciente(cedula)
 
             if paciente:
-                print("\n📌 Datos del paciente:")
+                print("\nDatos del paciente:")
                 print(f"Nombre: {paciente.verNombre()}")
                 print(f"Cédula: {paciente.verCedula()}")
                 print(f"Género: {paciente.verGenero()}")
                 print(f"Servicio: {paciente.verServicio()}")
             else:
-                print("⚠️ Paciente no encontrado.")
+                print("Paciente no encontrado.")
 
         elif opcion == "3":
-            print(f"👥 Número de pacientes registrados: {sistema.contar_pacientes()}")
+            print(f"Número de pacientes registrados: {sistema.contar_pacientes()}")
 
         elif opcion == "4":
-            print("👋 Saliendo del sistema...")
+            print("Saliendo del sistema...")
             break
 
         else:
-            print("❌ Opción no válida. Intente de nuevo.")
+            print("Opción no válida. Intente de nuevo.")
 
 
 if __name__ == "__main__":
